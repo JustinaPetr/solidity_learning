@@ -61,7 +61,7 @@ tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
 simple_storage = w3.eth.contract(address = tx_receipt.contractAddress, abi = abi)
 
 # calling a view function
-print(simple_storage.functions.retrieve().call())
+
 
 store_transaction = simple_storage.functions.store(15).buildTransaction({"gasPrice": w3.eth.gas_price, "chainId": chain_id, "from": address, "nonce": nonce + 1,})
 signed_store_txn = w3.eth.account.sign_transaction(store_transaction, private_key = os.getenv("PRIVATE_KEY"))
